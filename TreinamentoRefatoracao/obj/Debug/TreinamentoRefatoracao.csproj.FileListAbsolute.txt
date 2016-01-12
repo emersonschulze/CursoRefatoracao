@@ -1,0 +1,2 @@
+C:\lopes\dropbox\Dropbox\Programas\TreinamentoRefatoracao\TreinamentoRefatoracaoUnitarioOriginal\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe.config
+E:\lopes\dropbox\Dropbox\Programas\TreinamentoRefatoracao\TreinamentoRefatoracaoUnitarioOriginal\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe.config
