@@ -9,11 +9,10 @@ namespace TreinamentoRefatoracao.Tests.Tabelas
     public class SfnFaturaTests
     {
         [Test]
+        [ExpectedException(typeof(Exception))]
         public void Nao_deve_ser_possivel_instanciar_com_beneficiario_invalido()
         {
-            Assert.Throws<ArgumentNullException>(   
-                () => { new SfnFatura(TipoFatura.Mensalidade, null); }, 
-                "beneficiario");
+            
         }
 
     }

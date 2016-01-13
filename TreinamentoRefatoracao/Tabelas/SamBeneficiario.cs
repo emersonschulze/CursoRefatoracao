@@ -8,6 +8,6 @@ namespace TreinamentoRefatoracao.Tabelas
         public int Handle { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
-        public TipoPessoa TipoPessoa { get; set; }
+        public TipoPessoaEnum TipoPessoa { get; set; }
     }
 }

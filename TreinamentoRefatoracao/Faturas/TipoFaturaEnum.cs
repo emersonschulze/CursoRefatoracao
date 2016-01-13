@@ -1,8 +1,9 @@
 ﻿namespace TreinamentoRefatoracao.Faturas
 {
-    public enum TipoDeFaturaEnum
+    public enum TipoFaturaEnum
     {
         Mensalidade = 120,
-        RevisaoDeIss = 620
+        RevisaoIss = 620,
+        RevisaoInss = 500
     }
 }

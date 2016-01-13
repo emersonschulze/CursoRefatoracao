@@ -8,7 +8,7 @@
             Valor = valor;
         }
 
-        public int TipoLancamentoFinanciero { get; }
-        public decimal Valor { get; }
+        public int TipoLancamentoFinanciero { get; set; }
+        public decimal Valor { get; set; }
     }
 }

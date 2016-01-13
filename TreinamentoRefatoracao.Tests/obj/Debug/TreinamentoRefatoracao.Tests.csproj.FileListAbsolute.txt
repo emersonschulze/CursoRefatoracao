@@ -8,3 +8,13 @@ C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao.Tests\
 C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao.Tests\obj\Debug\TreinamentoRefatoracao.Tests.csprojResolveAssemblyReference.cache
 C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao.Tests\obj\Debug\TreinamentoRefatoracao.Tests.dll
 C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao.Tests\obj\Debug\TreinamentoRefatoracao.Tests.pdb
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\bin\Debug\TreinamentoRefatoracao.Tests.dll
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\bin\Debug\TreinamentoRefatoracao.Tests.pdb
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\bin\Debug\nunit.framework.dll
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\bin\Debug\nunit.mocks.dll
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\bin\Debug\TreinamentoRefatoracao.exe
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\bin\Debug\TreinamentoRefatoracao.pdb
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\bin\Debug\nunit.framework.xml
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\obj\Debug\TreinamentoRefatoracao.Tests.csprojResolveAssemblyReference.cache
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\obj\Debug\TreinamentoRefatoracao.Tests.dll
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao.Tests\obj\Debug\TreinamentoRefatoracao.Tests.pdb

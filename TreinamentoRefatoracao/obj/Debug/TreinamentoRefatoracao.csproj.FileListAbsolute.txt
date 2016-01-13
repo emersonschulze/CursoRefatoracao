@@ -9,3 +9,6 @@ C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao\obj\De
 C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe.config
 C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.exe
 C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.pdb
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.csprojResolveAssemblyReference.cache
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.pdb
