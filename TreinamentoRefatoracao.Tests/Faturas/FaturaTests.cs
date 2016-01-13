@@ -3,6 +3,7 @@ using NUnit.Framework;
 using TreinamentoRefatoracao.CentroDeCusto;
 using TreinamentoRefatoracao.Dto;
 using TreinamentoRefatoracao.Faturas;
+using TreinamentoRefatoracao.Procedures;
 using TreinamentoRefatoracao.Tabelas;
 using TreinamentoRefatoracao.Tests.Mocks;
 
@@ -96,9 +97,9 @@ namespace TreinamentoRefatoracao.Tests.Faturas
             Assert.AreEqual(10000*0, fatura.ValorIrrf);
         }
 
-        private static Fatura ObterFaturaFake(SfnFatura fatura)
+        private static FaturaBuilder ObterFaturaFake(SfnFatura fatura)
         {
-            return new Fatura(new VerificaBeneficiarioInadimplenteMock(),new CentroDeCustoMock(), fatura);
+            return new FaturaBuilder(new VerificaBeneficiarioInadimplenteMock(),new CentroDeCustoMock(), fatura);
         }
     }
 }

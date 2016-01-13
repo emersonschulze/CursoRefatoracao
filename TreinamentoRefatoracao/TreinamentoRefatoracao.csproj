@@ -43,11 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CentroDeCusto\AbstractCentroDeCusto.cs" />
+    <Compile Include="CentroDeCusto\AbstractRevisaoCentroCusto.cs" />
     <Compile Include="CentroDeCusto\CentroDeCustoRevisaoInss.cs.cs" />
     <Compile Include="CentroDeCusto\CentroDeCustoRevisaoISS.cs" />
     <Compile Include="CentroDeCusto\CentroDeCustoRevisaoMensalidade.cs" />
     <Compile Include="Dto\Lancamento.cs" />
-    <Compile Include="Faturas\Fatura.cs" />
+    <Compile Include="Faturas\FaturaBuilder.cs" />
     <Compile Include="Faturas\TipoFaturaEnum.cs" />
     <Compile Include="Faturas\TipoPessoaEnum.cs" />
     <Compile Include="Irrf\CalculoImpostoIrrf.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="Irrf\IrrfJuridica.cs" />
     <Compile Include="Irrf\IrrfFisica.cs" />
     <Compile Include="Pesquisas\Fatura.cs" />
-    <Compile Include="Procedures\IVerificarBeneficiarioInadimplente.cs" />
+    <Compile Include="Interface\IVerificarBeneficiarioInadimplente.cs" />
     <Compile Include="Tabelas\Entidade.cs" />
     <Compile Include="Repositorio\IRepositorio.cs" />
     <Compile Include="Procedures\VerificaBeneficiarioInadimplente.cs" />

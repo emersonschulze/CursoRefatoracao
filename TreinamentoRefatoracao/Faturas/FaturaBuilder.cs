@@ -12,7 +12,7 @@ namespace TreinamentoRefatoracao.Faturas
     /// <summary>
     /// Classe responsável por gerar faturas
     /// </summary>
-    public class Fatura
+    public class FaturaBuilder
     {
         private readonly SfnFatura sfnFatura;
 
@@ -25,7 +25,7 @@ namespace TreinamentoRefatoracao.Faturas
         /// <summary>
         /// Mudar o construtor para aceitar o tipo da fatura e o beneficiario inteiro
         /// </summary>
-        public Fatura(
+        public FaturaBuilder(
             IVerificarBeneficiarioInadimplente verificaBeneficiarioInadimplente,
             AbstractCentroDeCusto centroDeCusto,
             SfnFatura sfnFatura)
@@ -36,9 +36,8 @@ namespace TreinamentoRefatoracao.Faturas
             repFatura.Incluir(sfnFatura);
         }
 
-        public void InserirLancamento(Dto.Lancamento lancamento)
+        public FaturaBuilder InserirLancamento(Dto.Lancamento lancamento)
         {
-
             if (sfnFatura.Lancamentos == null)
                 sfnFatura.Lancamentos = new List<SfnFaturaLanc>();
             sfnFatura.Lancamentos.Add(new SfnFaturaLanc()
@@ -49,7 +48,7 @@ namespace TreinamentoRefatoracao.Faturas
                 Valor = lancamento.Valor
             });
             repLancamento.Incluir(sfnFatura.Lancamentos.Last());
-
+            return this;
         }
 
         public SfnFatura Gerar()
