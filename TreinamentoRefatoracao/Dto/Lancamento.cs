@@ -2,7 +2,13 @@
 {
     public class Lancamento
     {
-        public int TipoLancamentoFinanciero { get; set; }
-        public decimal Valor { get; set; }
+        public Lancamento(int tipoLancamentoFinanciero, decimal valor)
+        {
+            TipoLancamentoFinanciero = tipoLancamentoFinanciero;
+            Valor = valor;
+        }
+
+        public int TipoLancamentoFinanciero { get; }
+        public decimal Valor { get; }
     }
 }

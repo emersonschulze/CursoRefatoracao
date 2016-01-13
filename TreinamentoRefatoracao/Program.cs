@@ -1,4 +1,7 @@
 ﻿using System;
+using TreinamentoRefatoracao.Faturas;
+using TreinamentoRefatoracao.Procedures;
+using TreinamentoRefatoracao.Tabelas;
 
 
 namespace TreinamentoRefatoracao
@@ -7,17 +10,12 @@ namespace TreinamentoRefatoracao
     {
         static void Main(string[] args)
         {
+            var sfnFatura = new SfnFatura(TipoFatura.Mensalidade, new SamBeneficiario());
+            var fatura = new Faturas.Fatura(new VerificaBeneficiarioInadimplente(), sfnFatura);
 
-            var fatura = new Faturas.Fatura();
-            fatura.SfnFatura.TipoFatura = 110;
-            fatura.SfnFatura.Beneficiario = new Tabelas.SamBeneficiario();
-
-
-            var lancamento = new Dto.Lancamento();
-            lancamento.TipoLancamentoFinanciero = 110;
-            lancamento.Valor = 100;
+            var lancamento = new Dto.Lancamento(110, 100);
             fatura.InserirLancamento(lancamento);
-            fatura.Executar();
+            fatura.Gerar();
 
             Console.ReadKey();
 

@@ -2,7 +2,7 @@
 
 namespace TreinamentoRefatoracao.Procedures
 {
-    public class VerificaBeneficiarioInadimplente
+    public class VerificaBeneficiarioInadimplente : IVerificarBeneficiarioInadimplente
     {
         /// <summary>
         /// Verifica se o beneficiário esta inadimplente

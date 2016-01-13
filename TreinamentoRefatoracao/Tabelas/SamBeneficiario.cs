@@ -1,4 +1,5 @@
 ﻿using System;
+using TreinamentoRefatoracao.Faturas;
 
 namespace TreinamentoRefatoracao.Tabelas
 {
@@ -7,6 +8,6 @@ namespace TreinamentoRefatoracao.Tabelas
         public int Handle { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
-        public int TipoPessoa { get; set; }
+        public TipoPessoa TipoPessoa { get; set; }
     }
 }

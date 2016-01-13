@@ -12,45 +12,51 @@ namespace TreinamentoRefatoracao.Faturas
     /// </summary>
     public class Fatura
     {
-        public SfnFatura SfnFatura { get; set; }
+        private const int VALOR_MAXIMO_DE_IMPOSTO_DE_RENDA = 1300;
+        private const double IRRF_15_PER_CENT = 0.15;
+        private const double IRRF_27_PER_CENT = 0.27;
 
+        private readonly SfnFatura sfnFatura;
 
         public IRepositorio<SfnFatura> repFatura = Repositorio.Tabelas.RepositorioFatura();
         public IRepositorio<SfnFaturaLanc> repLancamento = Repositorio.Tabelas.RepositorioLancamento();
         public IRepositorio<SfnFaturaLancCc> repLancamentoCc = Repositorio.Tabelas.RepositorioLancamentoCc();
+        private readonly IVerificarBeneficiarioInadimplente verificaBeneficiarioInadimplente;
 
         /// <summary>
         /// Mudar o construtor para aceitar o tipo da fatura e o beneficiario inteiro
         /// </summary>
-        public Fatura()
+        public Fatura(
+            IVerificarBeneficiarioInadimplente verificaBeneficiarioInadimplente, 
+            SfnFatura sfnFatura)
         {
-            SfnFatura = new SfnFatura();
-
-            repFatura.Incluir(SfnFatura);
+            this.verificaBeneficiarioInadimplente = verificaBeneficiarioInadimplente;
+            this.sfnFatura = sfnFatura;
+            repFatura.Incluir(sfnFatura);
         }
 
         public void InserirLancamento(Dto.Lancamento l)
         {
 
-            if (SfnFatura.Lancamentos == null)
-                SfnFatura.Lancamentos = new List<SfnFaturaLanc>();
-            SfnFatura.Lancamentos.Add(new SfnFaturaLanc()
+            if (sfnFatura.Lancamentos == null)
+                sfnFatura.Lancamentos = new List<SfnFaturaLanc>();
+            sfnFatura.Lancamentos.Add(new SfnFaturaLanc()
             {
-                HandleFatura = SfnFatura.Handle,
+                HandleFatura = sfnFatura.Handle,
                 Data = DateTime.Today,
                 TipoLancamentoFinanceiro = l.TipoLancamentoFinanciero,
                 Valor = l.Valor
             });
-            repLancamento.Incluir(SfnFatura.Lancamentos.Last());
+            repLancamento.Incluir(sfnFatura.Lancamentos.Last());
 
         }
 
         private void GerarCentroDecusto()
         {
-            if (SfnFatura.TipoFatura == 120) // Fatura de Mensalidade
+            if (sfnFatura.TipoFatura == TipoFatura.Mensalidade)
                 GerarCentroCustoMensalidade();
             else
-                if (SfnFatura.TipoFatura == 620) // Fatura de Revisão de ISS
+                if (sfnFatura.TipoFatura == TipoFatura.RevisaoIss)
                     GerarCentroCustoRevisaoIss();
                 else
                     throw new Exception("Tipo de fatura não reconhecido");
@@ -58,7 +64,7 @@ namespace TreinamentoRefatoracao.Faturas
 
         public void GerarCentroCustoRevisaoIss()
         {
-            foreach (var l in SfnFatura.Lancamentos)
+            foreach (var l in sfnFatura.Lancamentos)
             {
                 if (l.LancamentoCc == null)
                     l.LancamentoCc = new List<SfnFaturaLancCc>();
@@ -83,7 +89,7 @@ namespace TreinamentoRefatoracao.Faturas
 
         public void GerarCentroCustoMensalidade()
         {
-            SfnFatura.Lancamentos.ForEach(lanc =>
+            sfnFatura.Lancamentos.ForEach(lanc =>
             {
                 if (lanc.LancamentoCc == null)
                     lanc.LancamentoCc = new List<SfnFaturaLancCc>();
@@ -97,35 +103,36 @@ namespace TreinamentoRefatoracao.Faturas
             });
         }
 
-        public void Calcular()
+        private void CalcularIrrf()
         {
-            if (SfnFatura.Beneficiario.TipoPessoa == 1)
+            if (sfnFatura.Beneficiario.TipoPessoa == TipoPessoa.Fisica)
             {
-                if (SfnFatura.Valor > 1300)
-                    SfnFatura.ValorIrrf = SfnFatura.Valor * (decimal)0.27;
+                if (sfnFatura.Valor > VALOR_MAXIMO_DE_IMPOSTO_DE_RENDA)
+                {
+                    sfnFatura.ValorIrrf = sfnFatura.Valor * (decimal) IRRF_27_PER_CENT;
+                }
                 else
-                    SfnFatura.ValorIrrf = SfnFatura.Valor * (decimal)0.15;
+                    sfnFatura.ValorIrrf = sfnFatura.Valor * (decimal) IRRF_15_PER_CENT;
             }
-            if (SfnFatura.Beneficiario.TipoPessoa == 2)
-                SfnFatura.ValorIrrf = 0;
+            if (sfnFatura.Beneficiario.TipoPessoa == TipoPessoa.Juridica)
+                sfnFatura.ValorIrrf = 0;
         }
 
-        public SfnFatura Executar()
+        public SfnFatura Gerar()
         {
-            var inad = new VerificaBeneficiarioInadimplente();
-            if (inad.BeneficiarioInadimplente(SfnFatura.Beneficiario.Handle))
+            if (verificaBeneficiarioInadimplente.BeneficiarioInadimplente(sfnFatura.Beneficiario.Handle))
                 throw new Exception("Beneficiário esta inadimplente");
 
             GerarCentroDecusto();
 
-            SfnFatura.Valor = SfnFatura.Lancamentos.Sum(x => x.Valor);
-            SfnFatura.Numero = SfnFatura.Handle;
+            sfnFatura.Valor = sfnFatura.Lancamentos.Sum(x => x.Valor);
+            sfnFatura.Numero = sfnFatura.Handle;
 
-            Calcular();
+            CalcularIrrf();
 
-            repFatura.Alterar(SfnFatura);
+            repFatura.Alterar(sfnFatura);
 
-            return (new Pesquisas.Fatura()).PesquisarFatura(SfnFatura.Handle);
+            return (new Pesquisas.Fatura()).PesquisarFatura(sfnFatura.Handle);
         }
     }
 }

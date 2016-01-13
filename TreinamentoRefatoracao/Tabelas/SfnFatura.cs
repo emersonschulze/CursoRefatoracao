@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using TreinamentoRefatoracao.Faturas;
 
 namespace TreinamentoRefatoracao.Tabelas
 {
     public sealed class SfnFatura : Entidade
     {
-        public SfnFatura()
+        public SfnFatura(TipoFatura tipoFatura, SamBeneficiario beneficiario)
         {
+            if(beneficiario == null)
+                throw new ArgumentNullException("beneficiario");
+
+            TipoFatura = tipoFatura;
+            Beneficiario = beneficiario;
             Handle = Repositorio.Tabelas.RepositorioLancamento().NovoHandle();
         }
 
-        public int TipoFatura { get; set; }
+        public TipoFatura TipoFatura { get; set; }
         public int Numero { get; set; }
         public SamBeneficiario Beneficiario { get; set; }
         public DateTime DataEmissao { get; set; }

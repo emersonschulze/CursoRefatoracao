@@ -1,2 +1,11 @@
 C:\lopes\dropbox\Dropbox\Programas\TreinamentoRefatoracao\TreinamentoRefatoracaoUnitarioOriginal\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe.config
 E:\lopes\dropbox\Dropbox\Programas\TreinamentoRefatoracao\TreinamentoRefatoracaoUnitarioOriginal\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe.config
+C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe.config
+C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe
+C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.pdb
+C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.csprojResolveAssemblyReference.cache
+C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.exe
+C:\Compart\Educativos\Conteúdo C#\Treinamento TDD\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.pdb
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\bin\Debug\TreinamentoRefatoracao.exe.config
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.exe
+C:\Users\emerson.schulze\Desktop\Curso\TreinamentoRefatoracao\obj\Debug\TreinamentoRefatoracao.pdb
